@@ -1,0 +1,37 @@
+#include "person.h"
+
+Person::Person(){
+
+}
+
+void Person::setTeam(QString team){
+    this->team = team;
+}
+
+void Person::setName(QString name){
+    this->name = name;
+}
+
+void Person::setSecondName(QString secondName){
+    this->secondName = secondName;
+}
+
+void Person::setFatherName(QString fatherName){
+    this->fatherName = fatherName;
+}
+void Person::setBirthDate(QDate birthDate){
+    this->birthDate = birthDate;
+}
+
+void Person::setPoints(unsigned points){
+    this->points = points;
+}
+
+void Person::addPoints(unsigned points)
+
+QString Person::getTeam();
+QString Person::getName();
+QString Person::getSecondName();
+QString Person::getFarherName();
+QDate Person::getBirthDate();
+unsigned Person::getPoints();
