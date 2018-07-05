@@ -54,3 +54,4 @@ QDate Person::getBirthDate(){
 unsigned Person::getPoints(){
     return points;
 }
+

@@ -27,12 +27,18 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     creationmenu.cpp \
-    person.cpp
+    person.cpp \
+    team.cpp \
+    track.cpp \
+    qtracklistmodel.cpp
 
 HEADERS += \
         mainwindow.h \
     creationmenu.h \
-    person.h
+    person.h \
+    team.h \
+    track.h \
+    qtracklistmodel.h
 
 FORMS += \
         mainwindow.ui \
@@ -40,3 +46,5 @@ FORMS += \
 
 RESOURCES += \
     Resources/resources.qrc
+
+DISTFILES +=

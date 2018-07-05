@@ -16,6 +16,9 @@ public:
     ~CreationMenu();
 
 
+private slots:
+    void on_saveRbutton_clicked();
+
 private:
     Ui::CreationMenu *ui;
 };
