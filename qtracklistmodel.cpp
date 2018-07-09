@@ -1,6 +1,7 @@
 #include "qtracklistmodel.h"
 
 QTrackListModel::QTrackListModel(QObject *parent): QAbstractListModel(parent){
+
 }
 
 int QTrackListModel::rowCount(const QModelIndex &parent) const

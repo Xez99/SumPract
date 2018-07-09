@@ -3,20 +3,24 @@
 
 #include "QString"
 #include "QDate"
+#include "team.h"
 
+class Team;
 class Person
 {
 private:
-    QString team;
+    Team *team;
     QString name;
     QString secondName;
     QString fatherName;
     QDate birthDate;
     unsigned points;
+
 public:
     Person();
+    Person(Team *team);
 
-    void setTeam(QString team);
+    void setTeam(Team *team);
     void setName(QString name);
     void setSecondName(QString secondName);
     void setFatherName(QString fatherName);
@@ -24,12 +28,13 @@ public:
     void setPoints(unsigned points);
     void addPoints(unsigned points);
 
-    QString getTeam();
-    QString getName();
-    QString getSecondName();
-    QString getFarherName();
-    QDate getBirthDate();
-    unsigned getPoints();
+    Team* getTeam() const;
+    QString getName() const;
+    QString getSecondName() const;
+    QString getFarherName() const;
+    QString getFullName() const;
+    QDate getBirthDate() const;
+    unsigned getPoints() const;
 };
 
 #endif // PERSON_H

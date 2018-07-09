@@ -2,14 +2,19 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "ui_mainwindow.h"
-#include "creationmenu.h"
-#include "team.h"
-#include "track.h"
-#include "qtracklistmodel.h"
 #include "QMessageBox"
 #include "QDebug"
 #include "QStringListModel"
+#include "ui_mainwindow.h"
+
+#include "creationmenu.h"
+#include "tcreationmenu.h"
+#include "ccreationmenu.h"
+#include "qteamtreemodel.h"
+#include "qtracklistmodel.h"
+#include "qcompetitionlistmodel.h"
+#include "team.h"
+#include "track.h"
 
 namespace Ui {
 class MainWindow;
@@ -38,8 +43,28 @@ private slots:
 
     void on_TrackListView_clicked(const QModelIndex &index);
 
+    void on_addCButton_clicked();
+
+    void on_CompetitionListView_clicked(const QModelIndex &index);
+
+    void on_editCButton_clicked();
+
+    void on_deleteCButton_clicked();
+
+    void on_OpenBase_triggered();
+
+    void on_Save_triggered();
+
+    void on_SaveAs_triggered();
+
+    void on_NewBase_triggered();
+
+    void on_TeamTreeView_clicked(const QModelIndex &index);
+
 private:
-    QTrackListModel *model;
+    QTrackListModel *trackModel;
+    QCompetitionListModel *competModel;
+    QTeamTreeModel *teamModel;
     Ui::MainWindow *ui;
 
 };

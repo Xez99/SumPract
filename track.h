@@ -20,14 +20,16 @@ public:
 
     void setName(QString name);
     void setDescription(QString description);
-    void setGoldP(Person &goldP);
-    void setSilvP(QString &silvP);
-    void setBronP(QString &bronP);
+    void setGoldP(Person *goldP);
+    void setSilvP(Person *silvP);
+    void setBronP(Person *bronP);
 
     QString getName() const;
     QString getDescription() const;
-    Person *getGoldP();
-    Person *getSilvP();
-    Person *getBronP();
+    Person *getGoldP() const;
+    Person *getSilvP() const;
+    Person *getBronP() const;
+
+    //Track operator = (const Track& from);
 };
 #endif // TRACK_H

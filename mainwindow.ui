@@ -30,7 +30,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="tabsClosable">
        <bool>false</bool>
@@ -90,19 +90,6 @@
          <string>Удалить</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label">
-        <property name="geometry">
-         <rect>
-          <x>360</x>
-          <y>10</y>
-          <width>91</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>notClicked</string>
-        </property>
-       </widget>
        <widget class="QSplitter" name="splitter">
         <property name="geometry">
          <rect>
@@ -121,7 +108,7 @@
         <property name="childrenCollapsible">
          <bool>false</bool>
         </property>
-        <widget class="QTreeView" name="treeView">
+        <widget class="QTreeView" name="TeamTreeView">
          <property name="sizePolicy">
           <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
            <horstretch>0</horstretch>
@@ -131,6 +118,9 @@
          <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
          </property>
+         <attribute name="headerVisible">
+          <bool>false</bool>
+         </attribute>
         </widget>
         <widget class="QTextBrowser" name="textBrowser">
          <property name="sizePolicy">
@@ -142,7 +132,7 @@
         </widget>
        </widget>
       </widget>
-      <widget class="QWidget" name="tab_3">
+      <widget class="QWidget" name="tab_2">
        <attribute name="title">
         <string>Трассы</string>
        </attribute>
@@ -252,11 +242,11 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_2">
+      <widget class="QWidget" name="tab_3">
        <attribute name="title">
         <string>График соревнований</string>
        </attribute>
-       <widget class="QPushButton" name="pushButton_5">
+       <widget class="QPushButton" name="addCButton">
         <property name="geometry">
          <rect>
           <x>0</x>
@@ -272,17 +262,110 @@
          <string>Добавить</string>
         </property>
        </widget>
-       <widget class="QListView" name="listView_2">
+       <widget class="QListView" name="CompetitionListView">
         <property name="geometry">
          <rect>
-          <x>0</x>
-          <y>30</y>
-          <width>541</width>
-          <height>192</height>
+          <x>10</x>
+          <y>60</y>
+          <width>611</width>
+          <height>211</height>
          </rect>
         </property>
         <property name="focusPolicy">
-         <enum>Qt::TabFocus</enum>
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="selectionRectVisible">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="editCButton">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>99</x>
+          <y>0</y>
+          <width>101</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Редактировать</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="deleteCButton">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>210</x>
+          <y>0</y>
+          <width>80</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Удалить</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>40</y>
+          <width>60</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Дата</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>40</y>
+          <width>60</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Время</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_4">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>40</y>
+          <width>131</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>Название события</string>
+        </property>
+       </widget>
+       <widget class="QDateTimeEdit" name="dateTimeEdit">
+        <property name="geometry">
+         <rect>
+          <x>430</x>
+          <y>0</y>
+          <width>194</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="displayFormat">
+         <string>dd.MM.yy          HH:mm</string>
         </property>
        </widget>
       </widget>

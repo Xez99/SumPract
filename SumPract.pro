@@ -30,7 +30,13 @@ SOURCES += \
     person.cpp \
     team.cpp \
     track.cpp \
-    qtracklistmodel.cpp
+    qtracklistmodel.cpp \
+    tcreationmenu.cpp \
+    qcompetitionlistmodel.cpp \
+    competition.cpp \
+    ccreationmenu.cpp \
+    qteamtreemodel.cpp \
+    qteamlistmodel.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -38,11 +44,19 @@ HEADERS += \
     person.h \
     team.h \
     track.h \
-    qtracklistmodel.h
+    qtracklistmodel.h \
+    tcreationmenu.h \
+    qcompetitionlistmodel.h \
+    competition.h \
+    ccreationmenu.h \
+    qteamtreemodel.h \
+    qteamlistmodel.h
 
 FORMS += \
         mainwindow.ui \
-    creationmenu.ui
+    creationmenu.ui \
+    tcreationmenu.ui \
+    ccreationmenu.ui
 
 RESOURCES += \
     Resources/resources.qrc

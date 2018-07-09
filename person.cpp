@@ -1,10 +1,15 @@
 #include "person.h"
+#include "team.h"
 
 Person::Person(){
 
 }
 
-void Person::setTeam(QString team){
+Person::Person(Team *team){
+    this->team = team;
+}
+
+void Person::setTeam(Team *team){
     this->team = team;
 }
 
@@ -31,27 +36,32 @@ void Person::addPoints(unsigned points){
     this->points+=points;
 }
 
-QString Person::getTeam(){
+Team* Person::getTeam() const{
     return team;
 }
 
-QString Person::getName(){
+QString Person::getName() const{
     return name;
 }
 
-QString Person::getSecondName(){
+QString Person::getSecondName() const{
     return secondName;
 }
 
-QString Person::getFarherName(){
+QString Person::getFarherName() const{
     return fatherName;
 }
 
-QDate Person::getBirthDate(){
+QString Person::getFullName() const
+{
+    return secondName + " " + name + " " + fatherName;
+}
+
+QDate Person::getBirthDate() const{
     return birthDate;
 }
 
-unsigned Person::getPoints(){
+unsigned Person::getPoints() const{
     return points;
 }
 

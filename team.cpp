@@ -9,25 +9,30 @@ void Team::setName(QString name){
     this->name = name;
 }
 
-void Team::addRacer(Person person){
-    this->Racers.push_back(person);
+void Team::addRacer(Person *person){
+    person->setTeam(this);
+    this->Racers << *person;
 }
 
-QString Team::getName(){
+void Team::removeRacer(int index)
+{
+    Racers.removeAt(index);
+}
+
+QString Team::getName() const{
     return name;
 }
-std::list<Person> Team::getRacers(){
+QList<Person> Team::getRacers(){
     return this->Racers;
 }
-unsigned Team::getTotalPoints(){
+unsigned Team::getTotalPoints() const{
 
     unsigned TP = 0;
-    /*
-    //for_each(Racers.begin(), Racers.end(), TP += )
+
     for(auto it = Racers.begin(); it != Racers.end(); it++){
         TP+= it->getPoints();
-    }*/
-    for(auto it = Racers.begin(); it != Racers.end(); it++){
-        TP+= it->getPoints();}
+    }
+    //for(auto it = Racers.begin(); it != Racers.end(); it++){
+     //   TP+= it->getPoints();}
     return TP;
 }
