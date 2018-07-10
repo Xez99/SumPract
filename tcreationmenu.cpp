@@ -15,6 +15,10 @@ TCreationMenu::TCreationMenu(QTrackListModel *model, QTeamTreeModel *teamModel, 
     ui->comboBox_g->setModel(perModel);
     ui->comboBox_s->setModel(perModel);
     ui->comboBox_b->setModel(perModel);
+
+    ui->comboBox_g->setCurrentIndex(-1);
+    ui->comboBox_s->setCurrentIndex(-1);
+    ui->comboBox_b->setCurrentIndex(-1);
 }
 
 TCreationMenu::TCreationMenu(QTrackListModel *model, QTeamTreeModel *teamModel, const QModelIndex &index, QWidget *parent) :
@@ -65,17 +69,23 @@ void TCreationMenu::on_saveButton_clicked()
             Track nt;
             nt.setName(ui->lineEdit->text().simplified());
             nt.setDescription(descr);
-            nt.setGoldP(perModel->list.at(ui->comboBox_g->currentIndex()));
-            nt.setSilvP(perModel->list.at(ui->comboBox_s->currentIndex()));
-            nt.setBronP(perModel->list.at(ui->comboBox_b->currentIndex()));
+            if(ui->comboBox_g->currentIndex() != -1)
+                nt.setGoldP(perModel->list.at(ui->comboBox_g->currentIndex()));
+            if(ui->comboBox_s->currentIndex() != -1)
+                nt.setSilvP(perModel->list.at(ui->comboBox_s->currentIndex()));
+            if(ui->comboBox_b->currentIndex() != -1)
+                nt.setBronP(perModel->list.at(ui->comboBox_b->currentIndex()));
             model->itemInsert(nt);
         }
         else{
             model->list[index].setName(ui->lineEdit->text().simplified());
             model->list[index].setDescription(descr);
-            model->list[index].setGoldP(perModel->list.at(ui->comboBox_g->currentIndex()));
-            model->list[index].setSilvP(perModel->list.at(ui->comboBox_s->currentIndex()));
-            model->list[index].setBronP(perModel->list.at(ui->comboBox_b->currentIndex()));
+            if(ui->comboBox_g->currentIndex() != -1)
+                model->list[index].setGoldP(perModel->list.at(ui->comboBox_g->currentIndex()));
+            if(ui->comboBox_s->currentIndex() != -1)
+                model->list[index].setSilvP(perModel->list.at(ui->comboBox_s->currentIndex()));
+            if(ui->comboBox_b->currentIndex() != -1)
+                model->list[index].setBronP(perModel->list.at(ui->comboBox_b->currentIndex()));
         }
 
 

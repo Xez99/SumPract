@@ -33,7 +33,7 @@ void MainWindow::on_addRbutton_clicked()
     cm.exec();
 
     setDisabled(false);
-
+    setWindowModified(true);
     ui->TeamTreeView->reset();
     ui->editRbutton->setEnabled(false);
     ui->deliteRbutton->setEnabled(false);
@@ -55,7 +55,9 @@ void MainWindow::on_deliteRbutton_clicked()
             else{
                 teamModel->list[ui->TeamTreeView->currentIndex().parent().row()].removeRacer(ui->TeamTreeView->currentIndex().row());
             }
+            setWindowModified(true);
         }
+
         ui->TeamTreeView->reset();
     }
 
@@ -74,6 +76,7 @@ void MainWindow::on_editRbutton_clicked()
     cm.exec();
 
     setDisabled(false);
+    setWindowModified(true);
     ui->TeamTreeView->reset();
     ui->textBrowser->setText("");
 }
@@ -84,13 +87,12 @@ void MainWindow::on_addTbutton_clicked()
     ui->deleteTbutton->setEnabled(false);  
     setDisabled(true);
 
-    //setWindowModified(true);
-
     TCreationMenu tcm(trackModel, teamModel);
     tcm.show();
     tcm.exec();
 
     setDisabled(false);
+    setWindowModified(true);
     ui->trackDescription->setText("");
     ui->TrackListView->reset();
 }
@@ -106,6 +108,7 @@ void MainWindow::on_editTbutton_clicked()
     teditm.exec();
 
     setDisabled(false);
+    setWindowModified(true);
     ui->trackDescription->setText("");
     ui->TrackListView->reset();
 }
@@ -123,6 +126,7 @@ void MainWindow::on_deleteTbutton_clicked()
         if(ui->TrackListView->currentIndex().row() != -1){
             trackModel->list.removeAt(ui->TrackListView->currentIndex().row());
             ui->TrackListView->reset();
+            setWindowModified(true);
         }
 
     }
@@ -175,6 +179,7 @@ void MainWindow::on_addCButton_clicked()
     ccm.exec();
 
     setDisabled(false);
+    setWindowModified(true);
     ui->CompetitionListView->reset();
 }
 
@@ -189,6 +194,7 @@ void MainWindow::on_editCButton_clicked()
     ceditm.exec();
 
     setDisabled(false);
+    setWindowModified(true);
     ui->CompetitionListView->reset();
 }
 
@@ -205,17 +211,19 @@ void MainWindow::on_deleteCButton_clicked()
     ui->deleteCButton->setEnabled(false);
 
     if(decision == QMessageBox::Yes){
-        if(ui->CompetitionListView->currentIndex().row() != -1)
+        if(ui->CompetitionListView->currentIndex().row() != -1){
             competModel->list.removeAt(ui->CompetitionListView->currentIndex().row());
+            ui->CompetitionListView->reset();
+        }
+        setWindowModified(true);
     }
 
     setDisabled(false);
-    ui->CompetitionListView->reset();
 }
 
 void MainWindow::on_NewBase_triggered()
 {
-    setWindowModified(true);
+
     if(isWindowModified()){
         setDisabled(true);
         QMessageBox::StandardButton decision = QMessageBox::question(this, "Title",
@@ -225,8 +233,16 @@ void MainWindow::on_NewBase_triggered()
         ui->deleteCButton->setEnabled(false);
 
         if(decision == QMessageBox::Yes){
-            //Очистить базу
-            }
+            teamModel->list.clear();
+            trackModel->list.clear();
+            competModel->list.clear();
+            ui->textBrowser->setText("");
+            ui->trackDescription->setText("");
+            ui->CompetitionListView->reset();
+            ui->TrackListView->reset();
+            ui->TeamTreeView->reset();
+            setWindowModified(false);
+        }
 
 
         setDisabled(false);
