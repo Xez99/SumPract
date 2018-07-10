@@ -9,6 +9,7 @@ QTeamListModel::QTeamListModel(QList<Team> *data, QObject *parent):
 
 int QTeamListModel::rowCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent)
     return list->count();
 }
 
@@ -19,8 +20,6 @@ QVariant QTeamListModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case Qt::DisplayRole:
          return list->at(index.row()).getName();
-    case Qt::StatusTipRole:
-        return " Всего событий: " + QString::number(rowCount());
     default:
 
         return QVariant();

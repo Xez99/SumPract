@@ -6,6 +6,7 @@ QTrackListModel::QTrackListModel(QObject *parent): QAbstractListModel(parent){
 
 int QTrackListModel::rowCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent)
     return list.count();
 }
 
@@ -18,10 +19,7 @@ QVariant QTrackListModel::data(const QModelIndex &index, int role) const
         Track temp = list.at(index.row());
         return temp.getName();
     }
-    case Qt::StatusTipRole:
-        return " Всего трасс: " + QString::number(rowCount());
     default:
-
         return QVariant();
     }
 }

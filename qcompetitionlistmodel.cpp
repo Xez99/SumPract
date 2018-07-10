@@ -6,6 +6,7 @@ QCompetitionListModel::QCompetitionListModel(QObject *parent): QAbstractListMode
 
 int QCompetitionListModel::rowCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent)
     return list.count();
 }
 
@@ -17,10 +18,7 @@ QVariant QCompetitionListModel::data(const QModelIndex &index, int role) const
     case Qt::DisplayRole:
          return list.at(index.row()).getDate().toString(" dd.MM.yy  | ")
                  + list.at(index.row()).getTime().toString("  HH:mm   | ")+ list.at(index.row()).getName();
-    case Qt::StatusTipRole:
-        return " Всего событий: " + QString::number(rowCount());
     default:
-
         return QVariant();
     }
 }

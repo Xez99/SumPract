@@ -2,10 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "QMessageBox"
-#include "QDebug"
-#include "QStringListModel"
-#include "ui_mainwindow.h"
+#include <QMessageBox>
+#include <ui_mainwindow.h>
+#include "QFile"
+#include "QFileDialog"
 
 #include "creationmenu.h"
 #include "tcreationmenu.h"
@@ -13,8 +13,6 @@
 #include "qteamtreemodel.h"
 #include "qtracklistmodel.h"
 #include "qcompetitionlistmodel.h"
-#include "team.h"
-#include "track.h"
 
 namespace Ui {
 class MainWindow;

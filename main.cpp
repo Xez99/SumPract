@@ -8,6 +8,7 @@
 
 int main(int argc, char *argv[])
 {
+
     QApplication a(argc, argv);
 
     QSystemSemaphore semaphore("RacerManagerApp_Semaphore", 1);
@@ -21,6 +22,7 @@ int main(int argc, char *argv[])
   #endif
 
       QSharedMemory sharedMemory("RacerManagerApp_Shared_Memory");
+
       bool is_running;
       if (sharedMemory.attach()){
           is_running = true;

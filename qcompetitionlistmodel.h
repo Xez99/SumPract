@@ -3,7 +3,6 @@
 
 #include "competition.h"
 #include "QAbstractListModel"
-#include "QList"
 
 class QCompetitionListModel: public QAbstractListModel
 {
@@ -17,7 +16,7 @@ public:
     Qt::ItemFlags flags(const QModelIndex &index) const;
 
     void itemInsert(Competition competition);
-//private:
+
     QList<Competition> list;
 };
 

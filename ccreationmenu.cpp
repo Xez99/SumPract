@@ -10,6 +10,8 @@ CCreationMenu::CCreationMenu(QCompetitionListModel *model, int index, QWidget *p
     ui->setupUi(this);
     setWindowTitle("Создание события");
     ui->label_ReqName->hide();
+
+    ui->dateEdit->setDate(QDate::currentDate());
 }
 
 CCreationMenu::CCreationMenu(QCompetitionListModel *model, const QModelIndex &index, QWidget *parent):
@@ -51,14 +53,12 @@ void CCreationMenu::on_saveButton_clicked()
             nc.setName(ui->lineEdit->text().simplified());
             nc.setDate(ui->dateEdit->date());
             nc.setTime(ui->timeEdit->time());
-            //nc.setDescription(descr);//ui->textEdit->toPlainText());
             model->itemInsert(nc);
         }
         else{
             model->list[index].setName(ui->lineEdit->text().simplified());
             model->list[index].setDate(ui->dateEdit->date());
             model->list[index].setTime(ui->timeEdit->time());
-            //model->list[index].setDescription(descr);//ui->textEdit->toPlainText());
         }
 
         close();

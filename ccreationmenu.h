@@ -4,7 +4,6 @@
 #include <QDialog>
 #include "competition.h"
 #include "qcompetitionlistmodel.h"
-//#include "QModelIndex";
 
 namespace Ui {
 class CCreationMenu;
@@ -25,8 +24,8 @@ private slots:
     void on_closeButton_clicked();
 
 private:
-    int index;
     QCompetitionListModel *model;
+    int index;
     Ui::CCreationMenu *ui;
 };
 

@@ -1,8 +1,6 @@
 #ifndef TRACK_H
 #define TRACK_H
 
-#include "QString"
-#include "QListWidgetItem"
 #include "person.h"
 
 
@@ -26,10 +24,9 @@ public:
 
     QString getName() const;
     QString getDescription() const;
-    Person *getGoldP() const;
-    Person *getSilvP() const;
-    Person *getBronP() const;
+    Person* getGoldP() const;
+    Person* getSilvP() const;
+    Person* getBronP() const;
 
-    //Track operator = (const Track& from);
 };
 #endif // TRACK_H

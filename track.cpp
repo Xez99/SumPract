@@ -19,17 +19,17 @@ void Track::setDescription(QString description)
 
 void Track::setGoldP(Person *goldP)
 {
-
+    this->goldP = goldP;
 }
 
 void Track::setSilvP(Person *silvP)
 {
-
+    this->silvP = silvP;
 }
 
 void Track::setBronP(Person *bronP)
 {
-
+    this->bronP = bronP;
 }
 
 QString Track::getName() const
@@ -41,6 +41,22 @@ QString Track::getDescription() const
 {
     return description;
 }
+
+Person *Track::getGoldP() const
+{
+    return goldP;
+}
+
+Person *Track::getSilvP() const
+{
+    return silvP;
+}
+
+Person *Track::getBronP() const
+{
+    return bronP;
+}
+
 /*
 Track Track::operator = (const Track& from)
 {

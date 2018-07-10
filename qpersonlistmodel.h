@@ -1,13 +1,13 @@
-#ifndef QTEAMLISTMODEL_H
-#define QTEAMLISTMODEL_H
+#ifndef QPERSONLISTMODEL_H
+#define QPERSONLISTMODEL_H
 
 #include "QAbstractListModel"
 #include "team.h"
 
-class QTeamListModel: public QAbstractListModel
+class QPersonListModel: public QAbstractListModel
 {
 public:
-    explicit QTeamListModel (QList<Team> *data, QObject *parent = 0);
+    QPersonListModel (QList<Team> *data, QObject *parent = 0);
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const;
 
@@ -15,7 +15,9 @@ public:
 
     Qt::ItemFlags flags(const QModelIndex &index) const;
 
-    QList<Team> *list;
+    int indexOf(Person *person);
+
+    QList<Person*> list;
 };
 
-#endif // QTEAMLISTMODEL_H
+#endif // QPERSONLISTMODEL_H

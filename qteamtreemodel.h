@@ -2,7 +2,6 @@
 #define QTEAMTREEMODEL_H
 
 #include <QAbstractItemModel>
-#include "person.h"
 #include "team.h"
 
 class QTeamTreeModel : public QAbstractItemModel

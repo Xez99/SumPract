@@ -2,7 +2,6 @@
 #define QTRACKLISTMODEL_H
 
 #include "QAbstractListModel"
-#include "QList"
 #include "track.h"
 
 class QTrackListModel: public QAbstractListModel{
@@ -17,7 +16,7 @@ public:
     Qt::ItemFlags flags(const QModelIndex &index) const;
 
     void itemInsert(Track track);
-//private:
+
     QList<Track> list;
 };
 

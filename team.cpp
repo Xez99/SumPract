@@ -22,9 +22,7 @@ void Team::removeRacer(int index)
 QString Team::getName() const{
     return name;
 }
-QList<Person> Team::getRacers(){
-    return this->Racers;
-}
+
 unsigned Team::getTotalPoints() const{
 
     unsigned TP = 0;
@@ -32,7 +30,5 @@ unsigned Team::getTotalPoints() const{
     for(auto it = Racers.begin(); it != Racers.end(); it++){
         TP+= it->getPoints();
     }
-    //for(auto it = Racers.begin(); it != Racers.end(); it++){
-     //   TP+= it->getPoints();}
     return TP;
 }
