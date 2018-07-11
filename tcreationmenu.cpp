@@ -64,7 +64,7 @@ void TCreationMenu::on_saveButton_clicked()
         ui->label_noName->setText("");
         ui->label_reqName->hide();
 
-        QString descr = ui->textEdit->toPlainText().simplified();//.simplified();//.replace("\n", "<br>");
+        QString descr = ui->textEdit->toPlainText().simplified();
         if(index == -1){
             Track nt;
             nt.setName(ui->lineEdit->text().simplified());

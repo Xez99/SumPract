@@ -283,3 +283,24 @@ void MainWindow::on_TeamTreeView_clicked(const QModelIndex &index)
     ui->statusBar->showMessage("Всего команд: " + QString::number(teamModel->list.size()));
 
 }
+
+void MainWindow::closeEvent(QCloseEvent *ce)
+{
+    Q_UNUSED(ce)
+    if(isWindowModified()){
+        setDisabled(true);
+        QMessageBox::StandardButton decision = QMessageBox::question(this, "Title",
+                     "Имеются несохраненные данные. Закрыть программу?", QMessageBox::Yes | QMessageBox::No);
+
+        ui->editCButton->setEnabled(false);
+        ui->deleteCButton->setEnabled(false);
+
+        if(decision == QMessageBox::Yes){
+            close();
+        }
+
+        setDisabled(false);
+    }
+}
+
+

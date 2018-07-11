@@ -59,6 +59,8 @@ private slots:
 
     void on_TeamTreeView_clicked(const QModelIndex &index);
 
+    void closeEvent(QCloseEvent *ce);
+
 private:
     QTrackListModel *trackModel;
     QCompetitionListModel *competModel;

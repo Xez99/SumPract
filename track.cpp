@@ -56,17 +56,3 @@ Person *Track::getBronP() const
 {
     return bronP;
 }
-
-/*
-Track Track::operator = (const Track& from)
-{
-    if(this != &from){
-        this->setName(from.getName());
-        this->setDescription(from.getDescription());
-        this->setGoldP(from.getGoldP());
-        this->setSilvP(from.getSilvP());
-        this->setBronP(from.getBronP());
-    }
-    return *this;
-}
-*/
